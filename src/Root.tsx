@@ -1,9 +1,5 @@
-import { MyComposition } from "./Composition";
+import { GlassmorphismReelComposition } from "./Composition";
 
 export const RemotionRoot: React.FC = () => {
-  return (
-    <>
-      <MyComposition />
-    </>
-  );
+  return <GlassmorphismReelComposition />;
 };

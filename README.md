@@ -1,54 +1,37 @@
-# Remotion video
+# Glassmorphism Reel (Remotion)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+Reusable Remotion template for an Instagram-style 9:16 reel with animated frosted-glass cards over a full-screen background video.
 
-Welcome to your Remotion project!
-
-## Commands
-
-**Install Dependencies**
+## Setup
 
 ```console
-npm i --loglevel=error
+npm i
 ```
 
-**Start Preview**
+Add your background video at `public/reels/background.mp4` (or update `backgroundVideoSrc` in [src/Composition.tsx](src/Composition.tsx)). Large media files are git-ignored by default.
+
+## Preview
 
 ```console
 npm run dev
 ```
 
-**Render video**
+Opens Remotion Studio with the `GlassmorphismReel` composition.
+
+## Render
 
 ```console
-npx remotion render
+npx remotion render src/index.ts GlassmorphismReel out/glassmorphism-reel.mp4 --codec=h264 --overwrite
 ```
 
-**Upgrade Remotion**
+## Customize
+
+- **Cards/content/timing:** edit [src/data/reelCards.ts](src/data/reelCards.ts). Each card supports `duration` (frames @ 30fps), optional `startFrame`/`startSec`, `overlapAfter`, and `excludeFromProgress`.
+- **Composition settings:** edit [src/Composition.tsx](src/Composition.tsx) for `cardsStartDelayInFrames`, `backgroundVideoDurationInFrames`, `backgroundVideoSrc`, card position/size, and progress visibility.
+- **Glass UI:** see [src/components/glass/](src/components/glass/) and [src/compositions/GlassmorphismReel.tsx](src/compositions/GlassmorphismReel.tsx).
+
+## Quality check
 
 ```console
-npx remotion upgrade
+npm run lint
 ```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
